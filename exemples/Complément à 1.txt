@@ -1,0 +1,8 @@
+; Complément à 1
+; Attend un nombre binaire quelconque dans le ruban initial
+; Alphabet utilisé : _ 0 1
+;$INITIAL_TAPE:10110100
+
+q0 _ _ d halt
+q0 0 1 d q0
+q0 1 0 d q0

@@ -1,0 +1,10 @@
+; BONJOUR
+; Imprime BONJOUR sur un ruban vide
+
+q0 _ B d q1
+q1 _ O d q2
+q2 _ N d q3
+q3 _ J d q4
+q4 _ O d q5
+q5 _ U d q6
+q6 _ R d halt

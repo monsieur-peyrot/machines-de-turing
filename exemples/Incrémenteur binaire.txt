@@ -1,0 +1,16 @@
+; Incrémenteur binaire
+; Attend un nombre binaire quelconque dans le ruban initial
+; Alphabet utilisé : _ 0 1 + = A B
+;$INITIAL_TAPE:1111111
+
+q0 0 0 d q0
+q0 1 1 d q0
+q0 _ _ g q1
+
+q1 0 1 g q2
+q1 1 0 g q1
+q1 _ 1 d halt
+
+q2 0 0 g q2
+q2 1 1 g q2
+q2 _ _ d halt

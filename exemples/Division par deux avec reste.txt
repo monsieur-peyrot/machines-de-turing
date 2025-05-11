@@ -1,0 +1,16 @@
+; Division par deux avec reste
+; Alphabet utilisé : _ 0 1
+; Le ruban initial doit contenir un nombre binaire quelconque
+; Après exécution le ruban contient le quotient et le reste, séparés par un "vide"
+; $INITIAL_TAPE:101010011011
+
+q0 0 0 d q0
+q0 1 1 d q0
+q0 _ _ g q1
+
+q1 0 _ d q2
+q1 1 _ d q3
+
+q2 _ 0 d halt
+
+q3 _ 1 d halt

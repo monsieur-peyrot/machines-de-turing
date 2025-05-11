@@ -1,0 +1,101 @@
+; Addition de deux nombres binaires de même taille
+; Alphabet utilisé : _ 0 1 + = A B
+; Le ruban initial doit contenir le premier nombre binaire sur N bits
+; suivi du caractère "+"
+; puis le deuxième nombre binaire sur N bits suivi du caractère "="
+; puis N+1 caractères "0"
+; (voir exemple fourni)
+; $INITIAL_TAPE:01010101+00110110=000000000
+
+q0 0 0 d q0
+q0 1 1 d q0
+q0 A A d q0
+q0 B B d q0
+q0 + + g q1
+
+q1 0 A d q2
+q1 1 B d q3
+q1 A A g q1
+q1 B B g q1
+q1 _ _ d q14
+
+q2 + + d q2
+q2 0 0 d q2
+q2 1 1 d q2
+q2 A A d q2
+q2 B B d q2
+q2 = = g q4
+
+q3 + + d q3
+q3 0 0 d q3
+q3 1 1 d q3
+q3 A A d q3
+q3 B B d q3
+q3 = = g q5
+
+q4 0 A d q6
+q4 1 B d q7
+q4 A A g q4
+q4 B B g q4
+q4 + + g q4
+
+q5 0 A d q7
+q5 1 B d q8
+q5 A A g q5
+q5 B B g q5
+q5 + + g q5
+
+q6 = = d q6
+q6 0 0 d q6
+q6 1 1 d q6
+q6 A A d q6
+q6 B B d q6
+q6 _ _ g q9
+
+q7 = = d q7
+q7 0 0 d q7
+q7 1 1 d q7
+q7 A A d q7
+q7 B B d q7
+q7 _ _ g q10
+
+q8 = = d q8
+q8 0 0 d q8
+q8 1 1 d q8
+q8 A A d q8
+q8 B B d q8
+q8 _ _ g q11
+
+q9 A A g q9
+q9 B B g q9
+q9 0 A g q13
+q9 1 B g q13
+
+q10 A A g q10
+q10 B B g q10
+q10 0 B g q13
+q10 1 A g q12
+
+q11 A A g q11
+q11 B B g q11
+q11 0 A g q12
+q11 1 B g q12
+
+q12 0 1 g q13
+q12 1 0 g q12
+
+q13 0 0 g q13
+q13 1 1 g q13
+q13 A A g q13
+q13 B B g q13
+q13 = = g q13
+q13 + + g q13
+q13 _ _ d q0
+
+q14 0 0 d q14
+q14 1 1 d q14
+q14 A 0 d q14
+q14 B 1 d q14
+q14 + + d q14
+q14 = = d q14
+q14 _ _ g halt

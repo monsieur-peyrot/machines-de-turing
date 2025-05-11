@@ -1,0 +1,40 @@
+; Compteur décimal (basé sur l'incrémenteur décimal)
+; Attend un nombre binaire quelconque dans le ruban initial
+; Alphabet utilisé : _ 0 1 2 3 4 5 6 7 8 9
+;$INITIAL_TAPE:1
+
+q0 0 0 d q0
+q0 1 1 d q0
+q0 2 2 d q0
+q0 3 3 d q0
+q0 4 4 d q0
+q0 5 5 d q0
+q0 6 6 d q0
+q0 7 7 d q0
+q0 8 8 d q0
+q0 9 9 d q0
+q0 _ _ g q1
+
+q1 0 1 g q2
+q1 1 2 g q2
+q1 2 3 g q2
+q1 3 4 g q2
+q1 4 5 g q2
+q1 5 6 g q2
+q1 6 7 g q2
+q1 7 8 g q2
+q1 8 9 g q2
+q1 9 0 g q1
+q1 _ 1 d q0
+
+q2 0 0 g q2
+q2 1 1 g q2
+q2 2 2 g q2
+q2 3 3 g q2
+q2 4 4 g q2
+q2 5 5 g q2
+q2 6 6 g q2
+q2 7 7 g q2
+q2 8 8 g q2
+q2 9 9 g q2
+q2 _ _ d q0

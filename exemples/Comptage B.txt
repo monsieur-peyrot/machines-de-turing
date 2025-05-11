@@ -1,0 +1,34 @@
+; Comptage du nombre de B dans un mot comportant des A et des B
+; Alphabet utilisé : _ A B 1 0 # @
+; Exemple de mot d'entrée : 0#AAABBBAAABAB
+
+q0 _ _ g q4
+q0 0 0 d q0
+q0 1 1 d q0
+q0 # # d q0
+q0 A A d q0
+q0 B @ g q1
+q0 @ @ d q0
+
+q1 A A g q1
+q1 B B g q1
+q1 @ @ g q1
+q1 # # g q2
+
+q2 0 1 d q3
+q2 1 0 g q2
+q2 _ 1 d q3
+
+q3 0 0 d q3
+q3 1 1 d q3
+q3 # # d q3
+q3 A A d q3
+q3 @ @ d q0
+q3 _ _ g q4
+
+q4 0 0 g q4
+q4 1 1 g q4
+q4 A A g q4
+q4 @ B g q4
+q4 # # g q4
+q4 _ _ d halt
